@@ -51,9 +51,71 @@ print (f"La lista impar tiene: {impar} numeros" )
 #--------------------------------------------------------------------
 #Ejercicio4
 
-listaO = [1,3,5,3,7,1,9,5,3]
-listaM = []
-for i in range(len(listaO)):
-    if listaO[i] not in listaM:
-        listaM.append(listaO[i])
-print(f"La lista sin numeros repetidos es: {listaM}")
+lista_r = [1,3,5,3,7,1,9,5,3]
+lista_m = []
+   
+for i in range(len(lista_r)):
+    if (lista_r[i] not in lista_m):
+         lista_m.append(lista_r[i])   
+
+print(lista_m)
+
+#--------------------------------------------------------------------
+#Ejercicio5
+
+lista_n = ["Tamara","Joaquin","Emanuel","Diana","Cintia","Ramiro","Carlos","Romina"]
+
+opc= input("¿Quiere agregar un estudiante a su clase (Agregar) o eliminarlo (Eliminar)?: ")
+
+if (opc.lower() == "agregar"):
+    nombre = input("Por favor ingrese el nombre del alumno que agregara a su curso: ")
+    lista_n.append(nombre)
+elif (opc.lower() == "eliminar"):
+    print(f"Actualmente sus alumnos son: {lista_n}")
+    nombre_d = input("Por favor ingrese el nombre del alumno a eliminar de su curso: ")
+    lista_n.remove(nombre_d)
+else:
+    print("Por favor ingrese una de las dos opciones anteriores mencionadas.")    
+print(f"Su curso esta compuesto por los alumnos: {lista_n}")
+
+#--------------------------------------------------------------------
+#Ejercicio6
+
+lista_v = [0,1,2,3,4,5,6]
+
+ud = lista_v.pop()
+lista_v.insert(0,ud)
+print(lista_v)
+
+#--------------------------------------------------------------------
+#Ejercicio7
+
+lista_r = [[10,24],[2,12],[5,8],[16,17],[14,20],[22,30],[12,18]]
+dias = ["Lunes","Martes","Miercoles","Jueves","Viernes","Sabado","Domingo"]
+
+tempmax = 0
+tempmin = lista_r[0][0]
+promtmax = 0
+promtmin = 0
+for i in range (len(lista_r)):
+    promtmax = promtmax + lista_r[i][1]
+    promtmin = promtmin + lista_r[i][0]
+    if (lista_r[i][1] > tempmax):
+        tempmax = lista_r[i][1]
+        tempmini = lista_r[i][0]
+        dia = dias[i]
+        
+    if (lista_r[i][0] < tempmin):
+        tempmin = lista_r[i][0]  
+
+amplitud = tempmax - tempmini
+promtmin = round(promtmin / (len(lista_r)))
+promtmax = round(promtmax / (len(lista_r)))
+
+print(f"La temperatura minima de la semana fue: {tempmin}°")
+print(f"La temperatura maxima de la semana fue: {tempmax}°")
+print(f"El promedio de la temperatura maxima es: {promtmax}°")
+print(f"El promedio de la temperatura minima es: {promtmin}°")
+print(f"La mayor amplitud térmica fue de {amplitud}°C el día {dia}")
+#--------------------------------------------------------------------
+#Ejercicio8
