@@ -21,9 +21,13 @@ saludar_usuario(nombre)
 def informacion_personal(nombre,apellido,edad,domicilio):
     print(f"Soy {nombre} {apellido}, tengo {edad} años y vivo en {domicilio}")
 
-nombre = input("/nPor favor, ingrese su nombre: ")
+nombre = input("Por favor, ingrese su nombre: ")
 apellido = input("Por favor, ingrese su apellido: ")
 edad = int(input("Por favor, ingrese su edad: "))
 domicilio = input("Por ultimo ingrese su domicilio por favor: ")
 
 informacion_personal(nombre,apellido,edad,domicilio)
+
+#------------------------------------------------------
+#Ejercicio4
+pass
