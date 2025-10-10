@@ -118,4 +118,122 @@ print(f"El promedio de la temperatura maxima es: {promtmax}°")
 print(f"El promedio de la temperatura minima es: {promtmin}°")
 print(f"La mayor amplitud térmica fue de {amplitud}°C el día {dia}")
 #--------------------------------------------------------------------
-#Ejercicio8
+#Ejercicio8 
+notas = [[10,8,6,"Alejo"],[2,10,10,"Alejando"],[10,10,10,"Tamara"],[5,10,7,"Franco"],[3,5,9,"Rodrigo"]]
+
+prom_mat =0
+prom_pro = 0
+prom_log = 0
+prom_a = 0
+
+for i in range (len(notas)):
+    matematica = notas[i][0]
+    programacion = notas[i][1]
+    logica = notas [i][2]
+    alumno = notas [i][3]
+    prom_mat = prom_mat + matematica
+    prom_pro = prom_pro + programacion
+    prom_log = prom_log + logica
+    prom_a = (matematica + programacion + logica) / 3
+    print(f"El alumno {alumno} tiene como notas: {matematica},{programacion},{logica} y tiene un promedio gral de: {prom_a}")
+prom_mat = prom_mat / 5
+prom_pro = prom_pro / 5
+prom_log = prom_log / 5    
+print(f"El promedio gral. de Matematica es: {prom_mat}, el de Programacion es: {prom_pro} y el de Logica es: {prom_log}")
+#--------------------------------------------------------------------
+#Ejercicio9 
+
+tablero = [["-" for _ in range(3)] for _ in range(3)]
+salida = True
+turno = 0
+
+for fila in tablero:
+    print(" ".join(fila))
+
+while salida == True:
+    
+    if turno % 2 == 0:
+        jugador = "X" 
+    else:
+        jugador = "O"
+    print(f"Turno del jugador {jugador}")
+
+    num_val = True
+    while num_val == True:
+
+        fila = (input("Ingresa la fila (1, 2, 3): "))
+        columna = (input("Ingresa la columna (1, 2, 3): "))
+        if ((fila == "1" or fila == "2" or fila == "3") and (columna == "1" or columna == "2" or columna == "3") and (fila != "" and columna != "")):
+            fila = int(fila)
+            columna = int(columna)
+            fila -= 1
+            columna -= 1
+            
+            if tablero[fila][columna] == "-":
+                tablero[fila][columna] = jugador
+                num_val = False
+            else:
+                print("Casilla ocupada. Reintentalo")           
+        else:
+            print("El numero ingresado no es valido, por favor vuelva a ingresarlos segun lo especificado.")
+
+    for fila_tablero in tablero:
+        print(" ".join(fila_tablero))
+   
+        if fila_tablero == [jugador, jugador, jugador]:
+            salida = False
+
+    for i in range(3):
+        if tablero[0][i] == tablero[1][i] == tablero[2][i] == jugador:
+            salida = False        
+
+    if tablero[0][0] == tablero[1][1] == tablero[2][2] == jugador:
+        salida = False
+    if tablero[0][2] == tablero[1][1] == tablero[2][0] == jugador:
+        salida = False
+
+    if turno == 8 and salida == True:
+        print("¡Empate!")
+        salida = False
+    else:
+        turno += 1
+    
+print(f"Felicidades el jugador {jugador} es el ganador")
+#--------------------------------------------------------------------
+#Ejercicio10
+
+ventas = [
+    [5, 6, 20, 15, 19, 1, 7],   
+    [10,25,3,6,7,8,11],      
+    [13,15,12,20,22,4,9], 
+    [12,5,9,20,11,14,12]         
+]
+
+print("Total vendido por cada producto:")
+for i in range(4):
+    total_producto = 0
+    for j in range(7):
+        total_producto += ventas[i][j]
+    print(f"Producto {i+1}: {total_producto}")
+
+mayor_ventas = 0
+dia_mayor = 0
+for j in range(7):
+    total_dia = 0
+    for i in range(4):
+        total_dia += ventas[i][j]
+    if total_dia > mayor_ventas:
+        mayor_ventas = total_dia
+        dia_mayor = j
+print(f"\nDía con mayores ventas totales: Día {dia_mayor+1} con {mayor_ventas} unidades")
+
+mayor_producto = 0
+indice_producto = 0
+for i in range(4):
+    total_producto = 0
+    for j in range(7):
+        total_producto += ventas[i][j]
+    if total_producto > mayor_producto:
+        mayor_producto = total_producto
+        indice_producto = i
+print(f"\nProducto más vendido en la semana: Producto {indice_producto+1} con {mayor_producto} unidades")
