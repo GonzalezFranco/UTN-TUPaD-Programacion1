@@ -1,4 +1,4 @@
-Calabaza,180,2
-Salamin,246,1
-Limon,180,2
-Sandia,589,3
+Calabaza,180.0,2
+Salamin,246.0,1
+Limon,180.0,2
+Sandia,280.0,3
